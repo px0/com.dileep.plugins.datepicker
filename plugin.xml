@@ -3,14 +3,14 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.dileep.plugins.datepicker"
-        version="0.0.2">
+        version="0.1.0">
     <name>DatePickerPlugin</name>
     <description>Cordova Date Picker Plugin (android and ios only)</description>
     <license>Apache 2.0</license>
     <keywords>cordova, datepicker</keywords>
 
     <engines>
-        <engine name="cordova" version="2.9.0" />
+        <engine name="cordova" version=">=3.0.0" />
     </engines>
 
     <!-- android -->
