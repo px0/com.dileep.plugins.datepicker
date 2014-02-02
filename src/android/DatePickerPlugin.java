@@ -20,6 +20,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import android.text.format.DateFormat;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -94,7 +95,7 @@ public class DatePickerPlugin extends CordovaPlugin {
 					final TimeSetListener timeSetListener = new TimeSetListener(
 							datePickerPlugin, callbackContext);
 					final TimePickerDialog timeDialog = new TimePickerDialog(
-							currentCtx, timeSetListener, mHour, mMinutes, true);
+							currentCtx, timeSetListener, mHour, mMinutes, DateFormat.is24HourFormat(currentCtx));
 					timeDialog.show();
 				}
 			};

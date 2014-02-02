@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TimePicker;
+import android.text.format.DateFormat;
 
 public class DateTimePickerDialog extends Dialog implements OnClickListener {
 
@@ -39,12 +40,14 @@ public class DateTimePickerDialog extends Dialog implements OnClickListener {
 		datePicker = new DatePicker(context);
 		datePicker.updateDate (mYear, mMonth, mDay);
 		ll.addView(datePicker);
+
 		timePicker = new TimePicker(context);
-		timePicker.setIs24HourView(Boolean.FALSE);
+		timePicker.setIs24HourView(DateFormat.is24HourFormat(context));
+
 		timePicker.setCurrentHour(this.mHour);
 		timePicker.setCurrentMinute(this.mMinutes);
-		
 		ll.addView(timePicker);
+
 		LinearLayout buttons = new LinearLayout(context);
 		buttons.setOrientation(LinearLayout.HORIZONTAL);
 
@@ -57,6 +60,7 @@ public class DateTimePickerDialog extends Dialog implements OnClickListener {
 		cancel.setOnClickListener(new CancelOnClickListener(this));
 		cancel.setLayoutParams(layoutParams);
 		buttons.addView(cancel);
+
 		Button set = new Button(context);
 		set.setText("set");
 		set.setOnClickListener(this);
