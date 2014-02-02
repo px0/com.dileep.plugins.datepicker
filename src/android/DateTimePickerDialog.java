@@ -17,10 +17,16 @@ public class DateTimePickerDialog extends Dialog implements OnClickListener {
 	DatePicker datePicker;
 	TimePicker timePicker;
 	OnDateTimeSetListener listener;
+	int  mYear, mMonth, mDay, mHour, mMinutes;
 
-	public DateTimePickerDialog(Context context, OnDateTimeSetListener listener) {
+	public DateTimePickerDialog(Context context, OnDateTimeSetListener listener, int mYear, int mMonth, int mDay, int mHour, int mMinutes) {
 		super(context);
 		this.listener = listener;
+		this.mYear = mYear;
+		this.mMonth = mMonth;
+		this.mDay = mDay;
+		this.mHour = mHour;
+		this.mMinutes = mMinutes;
 	}
 
 	@Override
@@ -31,9 +37,13 @@ public class DateTimePickerDialog extends Dialog implements OnClickListener {
 		LinearLayout ll = new LinearLayout(context);
 		ll.setOrientation(LinearLayout.VERTICAL);
 		datePicker = new DatePicker(context);
+		datePicker.updateDate (mYear, mMonth, mDay);
 		ll.addView(datePicker);
 		timePicker = new TimePicker(context);
 		timePicker.setIs24HourView(Boolean.FALSE);
+		timePicker.setCurrentHour(this.mHour);
+		timePicker.setCurrentMinute(this.mMinutes);
+		
 		ll.addView(timePicker);
 		LinearLayout buttons = new LinearLayout(context);
 		buttons.setOrientation(LinearLayout.HORIZONTAL);

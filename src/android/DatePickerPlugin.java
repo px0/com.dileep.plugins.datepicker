@@ -48,6 +48,7 @@ public class DatePickerPlugin extends CordovaPlugin {
 
 	public synchronized boolean show(final JSONArray data,
 			final CallbackContext callbackContext) {
+
 		final Calendar c = Calendar.getInstance();
 		final Runnable runnable;
 		final Context currentCtx = cordova.getActivity();
@@ -65,8 +66,8 @@ public class DatePickerPlugin extends CordovaPlugin {
 			action = obj.getString("mode");
 
 			String optionDate = obj.getString("date");
-
 			String[] datePart = optionDate.split("/");
+			
 			month = Integer.parseInt(datePart[0]);
 			day = Integer.parseInt(datePart[1]);
 			year = Integer.parseInt(datePart[2]);
@@ -115,7 +116,7 @@ public class DatePickerPlugin extends CordovaPlugin {
 					final DateTimeSetListener dateTimeSetListener = new DateTimeSetListener(
 							datePickerPlugin, callbackContext);
 					final DateTimePickerDialog dateTimePickerDialog = new DateTimePickerDialog(
-							currentCtx, dateTimeSetListener);
+							currentCtx, dateTimeSetListener, mYear, mMonth, mDay,  mHour, mMinutes );
 					dateTimePickerDialog.show();
 				}
 			};
@@ -202,3 +203,4 @@ public class DatePickerPlugin extends CordovaPlugin {
 	}
 
 }
+
