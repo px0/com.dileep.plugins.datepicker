@@ -62,7 +62,7 @@ public class DateTimePickerDialog extends Dialog implements OnClickListener {
 		buttons.addView(cancel);
 
 		Button set = new Button(context);
-		set.setText("set");
+		set.setText("Set");
 		set.setOnClickListener(this);
 		set.setLayoutParams(layoutParams);
 		buttons.addView(set);
